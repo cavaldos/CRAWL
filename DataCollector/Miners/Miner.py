@@ -37,11 +37,14 @@ class Miner:
         print("Total analyzed: " + str(total_analyzed))
 
     def save_reg(self, year, title, citations, authors):
-        with open(self._get_year_file_name(year), "a") as f:
-            f.write(self.csv_format.format(year=year, title=title,
-                                           citations=citations,
-                                           authors=authors,
-                                           editorial=self._get_editorial()) + "\n")
+        with open(self._get_year_file_name(year), "a", encoding="utf-8") as f:
+            csv_line = {'year': year,
+                    'title': title,
+                    'citations': citations,
+                    'authors': authors,
+                    'editorial': self._get_editorial()}
+            f.write(self.csv_format.format_map(csv_line) + "\n")
+
 
     def year_analysis(self, year):
         year_analyzed = 0
