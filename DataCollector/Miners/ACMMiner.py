@@ -1,5 +1,9 @@
 import bs4
 import requests
+def _get_content_abstract(self, paper):
+    #!/usr/bin/env python3
+
+import requests
 
 from DataCollector.Miners.Miner import Miner
 from DataCollector.InvalidData import InvalidData
@@ -21,6 +25,8 @@ class ACMMiner(Miner):
             'user-agent': "Magic Browser"
         }
         return headers
+
+
 
 
     def _find_acm_pages(self, parse):
